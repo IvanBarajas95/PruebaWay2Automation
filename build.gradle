@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.IB'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://packages.atlassian.com/maven/repository/public")
+    }
+    maven {
+        url 'https://nivelics-710950626079.d.codeartifact.us-east-1.amazonaws.com/maven/automation/'
+        credentials {
+            username "aws"
+            password "eyJ2ZXIiOjEsImlzdSI6MTY0OTI1NjU3OCwiZW5jIjoiQTEyOEdDTSIsInRhZyI6IjRIRkUyMGdoSG1yMEt1TmVGdk9vTEEiLCJleHAiOjE2NDkyOTk3NzgsImFsZyI6IkExMjhHQ01LVyIsIml2IjoiWXJMTHRnN0cxRTI1bFk4RSJ9.ASGdhKuiY-Zxr2Y6IKpcPA.aSP9qyFQjIDdjktl.OBymgeywTlgc9Z8W8MSI2nmRCbPRDeqDZNY2FjZ74TMevifK6LhxEGUFQnscB2x4k9Be5lQ3t7EWOIKPJu-l2TPvhqecA8kyZIjzaAIpuL7Tb1ehuOPDAHDL8X0ZByLeacVDdoVRj8wWSjYpNWVfec6Zb-0QL_nC_7Mr440BCmw746A8dVpkWktH_qifCjpd5R9ttoO1I_EIZKTZ9-m5_ueVthP1jkvOiNgWS5oi-94Pty2WSgKTiq7BYq_9FDNHKxxOLwf5m4YadYiEhma3iO0vq3Nffq0go-Dnkz8l1mjc6nUwtnb1KG3PE37jDDDb4MGtwJrr5esrlcnJ6YNfVAcObIZL5AUre2Lwo_KLXi8kaGTM5nWZ3Ju9wpewBKWAtJbVnTgfUsJxXKukGuYMwszwWwjkgg5xbb5wuBk-YHtJIcyVc9UMcp__p7JXfmlAR1Q7qMSkqvCs9kqcZl4icR1p6SPAehpyTG-Vsm8YNTuf7d5wHJvXjF3wMoKudlf0WYSAZpR-4dhVOTUzMrvJCa-vten_Aom7lTLB3YUbg0YdSDryHviwqKNZZBbvk3JCaftvKQUHz8gK23kV5rNBLOcLD1NUk3zHgbEuLhGfwOFHhI5mLDQHgfW5y0hPMJrKZNLEP0_HWFOyEVTfpGaSjBMoKETlC2XPQjjrHnUTPTdk8WvANOsn1k69oO148MC1Uy7zeITlUEbviXjVSLm3HSlq9FLO10KybiFMAqKE-VhrmY-1Ki_kngBWC8Q2HwO9uAAvIez_WZw38q1z1cw6-TcxUt3ctOMuftA38n2GneQyvn8I7A6ArOBHmMp0MmWpeDzawCJryh82AcRrP2PAb4sq7dh9BroM5UN_KDRKJ4x_OZDAyVP5f0RoN1nmeJ4aOW7ywWRiRet5Qvzw5elfJXYTOw.wlpvsEPbUQ0jKpstmW7VIg"
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.nivelics:archetype-automation-java:0.2.25.35-BETA'
+    implementation 'org.testng:testng:7.1.0'
+}
+
+test {
+    useTestNG()
+}
