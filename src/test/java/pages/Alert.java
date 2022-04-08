@@ -5,10 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-
-public class PruebaWayAutomation extends Method {
-    @FindBy(xpath = "//fieldset[@class='fieldset']//input[@name='name']")
-    private WebElement Name;
+public class Alert extends Method {
+    //@FindBy(xpath = "//fieldset[@class='fieldset']//input[@name='name']")
+    //private WebElement Name;
     @FindBy(xpath = "//p[2]//input[1]")
     private WebElement Lastname;
     @FindBy(xpath = "//label[normalize-space()='Single']")
@@ -41,17 +40,20 @@ public class PruebaWayAutomation extends Method {
     private WebElement confirmPassword;
     @FindBy(xpath = "//input[@value='submit']")
     private WebElement buttonsubmit;
+    @FindBy(xpath = "//body/section[@id='wrapper']/div[1]/div[1]/div[1]/form[1]/fieldset[1]/p[1]/label[2]")
+    private WebElement alertName;
 
     String profilepicture = "C:\\Users\\ivano\\OneDrive\\Escritorio\\female-profile-icon-10.jpg";
+
 
     Select country = null;
     Select mes = null;
     Select optionday = null;
     Select optionyear = null;
 
-    public PruebaWayAutomation Form() {
-        WAIT_INTERFACE.waitForElementToClickeable(10, 2, Name);
-        SEN_KEYS_INTERFACE.sendKeys(Name, "Ivan");
+    public Alert Form() {
+        //WAIT_INTERFACE.waitForElementToClickeable(10, 2, Name);
+        //SEN_KEYS_INTERFACE.sendKeys(Name, "Ivan");
         WAIT_INTERFACE.waitForElementToClickeable(10, 2, Lastname);
         SEN_KEYS_INTERFACE.sendKeys(Lastname, "Barajas");
         WAIT_INTERFACE.waitForElementToClickeable(10, 2, Single);
@@ -72,16 +74,17 @@ public class PruebaWayAutomation extends Method {
         SEN_KEYS_INTERFACE.sendKeys(phone, "3005041221");
         SEN_KEYS_INTERFACE.sendKeys(username, "IvanBarajas95");
         SEN_KEYS_INTERFACE.sendKeys(email, "Ivanovalle_b@hotmail.com");
-        WAIT_INTERFACE.waitForElementIsDisplayed(10, 2,uploadPicture);
+        WAIT_INTERFACE.waitForElementIsDisplayed(10, 2, uploadPicture);
         //UTILS_INTERFACE.clickElement(uploadPicture);
         SEN_KEYS_INTERFACE.sendKeys(uploadPicture, profilepicture);
-        SEN_KEYS_INTERFACE.sendKeys(aboutYourself,"I am Quality Assuramce Tester, I am 26 years old");
-        SEN_KEYS_INTERFACE.sendKeys(password,"1234");
-        SEN_KEYS_INTERFACE.sendKeys(confirmPassword,"1234");
+        SEN_KEYS_INTERFACE.sendKeys(aboutYourself, "I am Quality Assuramce Tester, I am 26 years old");
+        SEN_KEYS_INTERFACE.sendKeys(password, "1234");
+        SEN_KEYS_INTERFACE.sendKeys(confirmPassword, "1234");
         UTILS_INTERFACE.clickElement(buttonsubmit);
+        String namealert = alertName.getText();
+        softAssert.assertEquals(namealert,"This field is required.");
+        softAssert.assertAll();
         WAIT_INTERFACE.pause(10);
 
-
-
-    return this;}
+        return this;}
 }

@@ -11,5 +11,4 @@ public class PruebaWayAutomation_Test extends Hooks {
     public void register(){
         test.get().Form();
     }
-
 }
